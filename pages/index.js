@@ -1,3 +1,6 @@
+import GetJoke from '../components/GetJoke';
+import GetPunchline from '../components/GetPunchline';
+
 function Home() {
   return (
     <div
@@ -9,7 +12,8 @@ function Home() {
         margin: '0 auto',
       }}
     >
-      <h1>Welcome Home!</h1>
+      <GetJoke />
+      <GetPunchline />
     </div>
   );
 }
