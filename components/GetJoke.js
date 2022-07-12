@@ -3,10 +3,21 @@ import getJoke from '../api/jokeData';
 
 const GetJoke = () => {
   const [joke, setJoke] = useState();
+  const [buttonText, setButtonText] = useState('Get A Joke');
+  const [value, setValue] = useState(0);
 
-  const handleClick = () => {
+  const handleJoke = () => {
     // console.warn(getJoke().then((response) => console.warn(response.setup)));
     getJoke().then((response) => setJoke(response.setup));
+    setButtonText('Get a Punchline');
+    setValue((prevState) => prevState + 1);
+    console.warn(value);
+  };
+
+  const handlePunchline = () => {
+    console.warn('hello');
+    setValue((prevState) => prevState + 1);
+    getJoke().then((response) => setJoke(response.delivery));
   };
 
   return (
@@ -14,9 +25,9 @@ const GetJoke = () => {
       <p><u><em>Joke Generator</em></u></p>
       <button
         type="button"
-        onClick={handleClick}
+        onClick={value % 2 === 0 ? handleJoke : handlePunchline}
       >
-        GET THEE A JOKE
+        { buttonText }
       </button>
       <p>{ joke }</p>
     </>

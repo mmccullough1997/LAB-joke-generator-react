@@ -1,5 +1,4 @@
 import GetJoke from '../components/GetJoke';
-import GetPunchline from '../components/GetPunchline';
 
 function Home() {
   return (
@@ -13,7 +12,6 @@ function Home() {
       }}
     >
       <GetJoke />
-      <GetPunchline />
     </div>
   );
 }
