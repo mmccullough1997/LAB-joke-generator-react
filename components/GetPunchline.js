@@ -15,7 +15,7 @@ const GetPunchline = () => {
         type="button"
         onClick={handleClick}
       >
-        GET A PUNCHLINE
+        GET THEE A PUNCHLINE
       </button>
       <p>{ punchline }</p>
     </>

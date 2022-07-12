@@ -16,7 +16,7 @@ const GetJoke = () => {
         type="button"
         onClick={handleClick}
       >
-        GET A JOKE
+        GET THEE A JOKE
       </button>
       <p>{ joke }</p>
     </>
