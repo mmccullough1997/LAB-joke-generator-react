@@ -12,13 +12,13 @@ const GetJoke = () => {
   return (
     <>
       <p><u><em>Joke Generator</em></u></p>
-      <p>{ joke }</p>
       <button
         type="button"
         onClick={handleClick}
       >
         GET A JOKE
       </button>
+      <p>{ joke }</p>
     </>
   );
 };
