@@ -28,7 +28,9 @@ const GetJoke = () => {
       >
         { buttonText }
       </button>
-      <p>{ joke }</p>
+      <div className="jokeBox">
+        <p>{ joke }</p>
+      </div>
     </>
   );
 };
