@@ -11,11 +11,10 @@ const GetJoke = () => {
     getJoke().then((response) => setJoke(response.setup));
     setButtonText('Get a Punchline');
     setValue((prevState) => prevState + 1);
-    console.warn(value);
   };
 
   const handlePunchline = () => {
-    console.warn('hello');
+    setButtonText('Get A Joke');
     setValue((prevState) => prevState + 1);
     getJoke().then((response) => setJoke(response.delivery));
   };
