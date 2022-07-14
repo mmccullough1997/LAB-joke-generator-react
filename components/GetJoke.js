@@ -2,21 +2,18 @@ import { useState } from 'react';
 import getJoke from '../api/jokeData';
 
 const GetJoke = () => {
-  const [joke, setJoke] = useState();
-  const [buttonText, setButtonText] = useState('Get A Joke');
-  const [value, setValue] = useState(0);
+  const [joke, setJoke] = useState({});
+  const [buttonText, setButtonText] = useState('Get you a joke');
 
   const handleJoke = () => {
     // console.warn(getJoke().then((response) => console.warn(response.setup)));
-    getJoke().then((response) => setJoke(response.setup));
-    setButtonText('Get a Punchline');
-    setValue((prevState) => prevState + 1);
-  };
-
-  const handlePunchline = () => {
-    setButtonText('Get A Joke');
-    setValue((prevState) => prevState + 1);
-    getJoke().then((response) => setJoke(response.delivery));
+    if (buttonText === 'Get you a joke' || buttonText === 'Get another joke') {
+      getJoke().then((response) => setJoke(response)).then(() => {
+        setButtonText('Get a punchline');
+      });
+    } else {
+      setButtonText('Get another joke');
+    }
   };
 
   return (
@@ -24,13 +21,12 @@ const GetJoke = () => {
       <p><u><em>Joke Generator</em></u></p>
       <button
         type="button"
-        onClick={value % 2 === 0 ? handleJoke : handlePunchline}
+        onClick={handleJoke}
       >
         { buttonText }
       </button>
-      <div className="jokeBox">
-        <p>{ joke }</p>
-      </div>
+      <p>{ buttonText === 'Get you a joke' ? '' : joke.setup }</p>
+      <p>{ buttonText === 'Get a punchline' ? '' : joke.delivery }</p>
     </>
   );
 };
