@@ -18,15 +18,17 @@ const GetJoke = () => {
 
   return (
     <>
-      <p><u><em>Joke Generator</em></u></p>
+      <p className="title"><u><em>Joke Generator</em></u></p>
       <button
         type="button"
         onClick={handleJoke}
       >
         { buttonText }
       </button>
-      <p>{ buttonText === 'Get you a joke' ? '' : joke.setup }</p>
-      <p>{ buttonText === 'Get a punchline' ? '' : joke.delivery }</p>
+      <div className="jokeBox">
+        <p className="setup">{ buttonText === 'Get you a joke' ? '' : joke.setup }</p>
+        <p className="punchline">{ buttonText === 'Get a punchline' ? '' : joke.delivery }</p>
+      </div>
     </>
   );
 };
